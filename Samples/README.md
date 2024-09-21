@@ -35,6 +35,7 @@ Visualization of the distribution of profit by time and place:
 Visualization of the minimum number of vehicles needed to fill the demand by hour:
 
 ![minimum_number](images/1_minimum.png)
+
 *This is calculated by dividing the number of recorded passengers per hour by the max capacity of a vehicle*
 
 ### Insights
