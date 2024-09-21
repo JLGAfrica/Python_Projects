@@ -43,4 +43,9 @@ Visualization of the minimum number of vehicles needed to fill the demand by hou
 - The problem is that we can only gather information when passengers board. Say we field one vehicle and it is always full at every stop, containing 20 passengers. Do we conclude we only need one vehicle since in our records, the demand peaks at 20?
 - Rather, it is better to look at the average percentage of seats filled of the whole fleet. 
 - The sample data I am working on does not have a vehicle ID column. How can I calculate the average for the whole fleet if I do not have information about the individual vehicles?
-- Using another simple random number generator for the vehicle ID might result in vehicles sometimes exceeding capacity, vehicles going backwards (when RNG generated records of vehicle 1 at stop 3 at 5:05am and then at stop 2 at 5:12am)
+- Using another simple random number generator for the vehicle ID might result in vehicles sometimes exceeding capacity and/or vehicles going backwards (when RNG generates records of vehicle 1 at stop 3 at 5:05am and then at stop 2 at 5:12am).
+
+## 2_Efficient_Transportation_v2
+To avoid the irregularities mentioned in 1_Efficient_Transportation, I decided that the easiest way to generate credible data without public utility vehicles magically exceeding capacity or going backwards is to just do a simple simulation of them running through the route and getting passengers. I am interested in simulations anyway so this is good beginner practice.
+
+Assumptions:
