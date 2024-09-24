@@ -54,6 +54,7 @@ Assumptions:
 - In general, the further you travel, the more you pay
 - Drivers work eight-hour shifts, so there are morning and afternoon shifts for them
 - Each vehicle has its own schedule to follow
+- There are 32 morning shift vehicles and 38 afternoon shift vehicles
 ### Creating a somewhat realistic sample information
 - Vehicles cannot record passengers boarding and leaving without the passengers themselves. First, I created a set of possible passenger objects located at random stops at random times. There are also NoonPassenger, AfternoonPassenger, and EveningPassenger kinds of passengers. Here is the code for a MorningPassenger object:
 ```python
@@ -157,7 +158,7 @@ I separated the whole record by vehicle ID to calculate individual average perce
 
 ![2individual](images/2_record_by_vehicle.png)
 
-Remember the hidden data because we only record information if a passenger boards or disembarks? We have to consider the stops made where no passenger boards or disembarks. Imagine that our record tells us that a vehicle had 10 passengers after leaving stop 1, 20 passengers after leaving stop 2, and 10 passengers after leaving stop 4. We do not have a record for stop 3 since no one boarded or disembarked. If we calculate the average for the the stops, we get (10 + 20 + 10) / 3 = 13.33 passengers for the whole trip. But if no one boarded or disembarked at stop 3, then it just means we left there with the same number of passengers as we had when we left stop 2. Considering this in the calculation for the average, we get (10 + 20 + 20 + 10) / 4 = 15. After accounting for this, here is the new example individual record for vehicle ID 0:
+Remember the hidden data because we only record information if a passenger boards or disembarks? We have to consider the stops made where no passenger boards or disembarks. Imagine that our record tells us that a vehicle had 10 passengers after leaving stop 1, 20 passengers after leaving stop 2, and 10 passengers after leaving stop 4. We do not have a record for stop 3 since no one boarded or disembarked. If we calculate the average for the the stops, we get (10 + 20 + 10) / 3 = 13.33 passengers for the whole trip. But if no one boarded or disembarked at stop 3, then it just means we left there with the same number of passengers as we had when we left stop 2. Considering this in the calculation for the average, we get (10 + 20 + 20 + 10) / 4 = 15. We also have to ignore the last stop every vehicle had made since we know it had no passengers by the end. After accounting for these, here is the new example individual record for vehicle ID 0:
 
 ![2individualconsidered](images/2_record_by_vehicle_copy.png)
 
@@ -175,4 +176,8 @@ Average percentage of seats occupied by eight-hour segments
 ![2segment](images/2_average_per_segment.png)
 
 ### Insights
--
+- Morning shift vehicles have an average capacity of 60.72%.
+- Afternoon shift vehicles have an average capacity of 70.01%.
+- Eight-hour segments starting between 0500 to 0800 have the lowest amount of passengers with an average capacity of 60%.
+- The eight-hour segment starting at 1300 has the highest average capacity at 79%
+- Depending on the company's goal, we can use these data to decide the number of morning and afternoon vehicles and reallocate when vehicles start their shift.
